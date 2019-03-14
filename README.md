@@ -19,7 +19,25 @@
   
   4.启动项目 
   
-  ```npm start```或者```yarn start```
+  ```npm start```或者```yarn start```  
+  
+  5 安装antd 
+ 
+    ```yarn add antd```  
+    
+  6 安装babel-plugin-import  
+  
+  按需加载 antd 的脚本和样式的 
+  
+  ```yarn add babel-plugin-import```  
+  7 编辑.webpackrc文件,使 babel-plugin-import 插件生效。
+  ```{
+       "extraBabelPlugins": [
+         ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+       ]
+     }
+```
+
  * 文件解释  
  
    mock 存放用于 mock 数据的文件；
@@ -57,4 +75,19 @@
    .webpackrc 自定义的webpack配置文件，JSON格式，如果需要 JS 格式，可修改为 .webpackrc.js
   
  
+  * 编写第一个测试例子
+  1.在routes下建立Porducts.js
   
+  import React, {Component}from "react"; 
+
+     class Products extends Component{
+       render(){
+         return(<h2>Hello List of Products</h2>)
+       }
+     }
+     export  default  Products;
+     
+  2.在router.js里添加路由
+   import Products from './routes/Products';
+   <Route path="/products" exact component={Products} />
+  3.在http://localhost:8000/#/products下看到输入的文字

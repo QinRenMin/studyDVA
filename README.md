@@ -76,8 +76,8 @@
   
  
   * 编写第一个测试例子
-  1.在routes下建立Porducts.js
-  
+  1.在routes下建立Hello.js
+  ```
   import React, {Component}from "react"; 
 
      class Hello extends Component{
@@ -87,7 +87,44 @@
      }
      export  default  Hello;
      
+   ``` 
   2.在router.js里添加路由
+   ```
    import Hello from './routes/Hello';
    <Route path="/products" exact component={Hello} />
+  
+   ```
+   
   3.在http://localhost:8000/#/products下看到输入的文字
+  
+  * 编写用表格的形式展示信息
+  1.在components/ProductList.js下编写组件信息
+  
+  2.定义model
+  新建 models/products.js,包含同步更新 state 的 reducers，处理异步逻辑的 effects，订阅数据源的 subscriptions 。
+
+  3.在index.js中载入
+  
+  ```
+  app.model(require('./models/products').default);
+  
+ ```
+ 4.connect
+ 将model和component连接起来
+ 编辑routes/Products.js
+ 
+ 5.在index.js中添加数据
+  ```
+  const app = dva({
+          initialState: {
+           products: [
+                { name: 'dva', year:'2',id: 1 },
+               { name: 'antd', year:'3',id: 2 },
+               { name: 'react',year:'1', id: 3 },
+               { name: 'redux', year:'4',id: 4 },
+               { name: 'vue', year:'6',id: 5 },
+               { name: 'html',year:'2', id: 6 },
+              ],
+            },
+      });
+      ```

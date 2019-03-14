@@ -108,12 +108,13 @@
   ```
   app.model(require('./models/products').default);
   
- ```
+ 
  4.connect
  将model和component连接起来
  编辑routes/Products.js
  
  5.在index.js中添加数据
+  
   ```
   const app = dva({
           initialState: {
@@ -127,4 +128,5 @@
               ],
             },
       });
-      ```
+      
+     ```

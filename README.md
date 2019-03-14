@@ -80,14 +80,14 @@
   
   import React, {Component}from "react"; 
 
-     class Products extends Component{
+     class Hello extends Component{
        render(){
-         return(<h2>Hello List of Products</h2>)
+         return(<h2>Hello List of Hello</h2>)
        }
      }
-     export  default  Products;
+     export  default  Hello;
      
   2.在router.js里添加路由
-   import Products from './routes/Products';
-   <Route path="/products" exact component={Products} />
+   import Hello from './routes/Hello';
+   <Route path="/products" exact component={Hello} />
   3.在http://localhost:8000/#/products下看到输入的文字
